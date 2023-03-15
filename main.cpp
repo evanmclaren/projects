@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 class student{
 private:
@@ -30,6 +31,7 @@ public:
 class test{
 private:
     int test_id;
+
     std::string course_name;
     std::string test_name;
     std::string test_date;
@@ -59,37 +61,6 @@ public:
         test_date = aTest_date;
 }};
 
-class test_result{
-private:
-    int test_id;
-    int student_id;
-    int grade;
-public:
-    test(int aTest_id, std::string aCourse_name, std::string aTest_name, std::string aTest_date){
-        setTest_id(aTest_id);
-        setCourse_name(aCourse_name);
-        setTest_name(aTest_name);
-        setTest_date(aTest_date);
-    }
-    void Gettest(int idt, std::string namec, std::string namet, std::string datet){
-        test_id = idt;
-        course_name = namec;
-        test_name = namet;
-        test_date = datet;
-    }
-    void setTest_id(int aTest_id){
-        test_id = aTest_id;
-    }
-    void setCourse_name(std::string aCourse_name){
-        course_name = aCourse_name;
-    }
-    void setTest_name(std::string aTest_name){
-        test_name = aTest_name;
-    }
-    void setTest_date(std::string aTest_date){
-        test_date = aTest_date;
-    }};
-
 int main(){
     int user_selection;
     int last_student_id = 0;
@@ -99,6 +70,7 @@ int main(){
     std::string aCourse_name;
     std::string aTest_name;
     std::string aTest_date;
+    std::vector<student> students;
 
     std::cout<<"Please choose:"<< std::endl;
     std::cout<<"1. Add student"<< std::endl;
@@ -127,9 +99,7 @@ int main(){
                 last_student_id ++;
 
                 student aStudent(last_student_id, aStudent_name, aStudent_email);
-                break;}
-            case 2:
-            {std::cout<<;
+                students.push_back(aStudent);
                 break;}
             case 4:
                 {std::cout<<"Enter course name: ";
@@ -143,6 +113,7 @@ int main(){
 
                 test aTest(last_test_id, aCourse_name, aTest_name, aTest_date);
                 break;}
+
     }
     std::cin.ignore();
     std::cin.get();
